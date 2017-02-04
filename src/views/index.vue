@@ -1,13 +1,10 @@
 <template>
  <div>
        <tab :line-width=2 active-color='#fc378c' v-model="index">
-        <tab-item class="vux-center" v-for="item in list2" @click="demo2 = item">{{item}}</tab-item>
+        <tab-item class="vux-center" v-for="item in list2" @click.native="typeSwitch">{{item}}</tab-item>
       </tab>
-      <!-- <swiper v-model="index" height="100px" :show-dots="false">
-        <swiper-item v-for="item in list2">
-          <div class="tab-swiper vux-center">{{item}} Container</div>
-        </swiper-item>
-      </swiper> -->
+
+      <router-view></router-view>
     </div>
 </template>
 
@@ -28,8 +25,22 @@ export default {
   data () {
     return {
       list2: list(),
-      demo2: '简书',
       index: 0
+    }
+  },
+  methods:{
+    typeSwitch(){
+      switch (this.index){
+        case 0:
+          this.$router.push('/menu/jianshu')
+          break;
+        case 1:
+          this.$router.push('/menu/gold')
+          break;
+        default:
+          this.$router.push('/menu/jianshu')
+          break;
+      }
     }
   }
 }

@@ -1,8 +1,9 @@
 <template>
 	 <div>
+	 <x-header> 登录 </x-header>
 		    <group>
 		      	<x-input 
-			      title="手机号码" v-model="mobile" placeholder="请输入手机号码" ref="input01" keyboard="number" is-type="china-mobile">
+			      title="手机号" v-model="mobile" placeholder="请输入手机号码" ref="input01" keyboard="number" is-type="china-mobile">
 		      	</x-input>
 
 		      	<x-input title="验证码"  v-model="vcode" placeholder="请输入验证码">
@@ -15,7 +16,7 @@
 </template>
 
 <script>
-import { XInput, Group, XButton, Cell, ButtonTab, ButtonTabItem} from 'vux'
+import { XInput, Group, XButton, Cell, ButtonTab, ButtonTabItem, XHeader} from 'vux'
 
 export default {
   components: {
@@ -24,7 +25,8 @@ export default {
     Group,
     Cell,
     ButtonTab,
-    ButtonTabItem
+    ButtonTabItem,
+    XHeader
   },
   data () {
    return {
